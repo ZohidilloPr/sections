@@ -1,0 +1,13 @@
+{% extends "main.html" %}
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block content %}
+    <a href="{% url 'A' %}">Add</a>
+    <ul>
+        {% for i in stu %}
+            <li><a href="{% url 'S' pk=i.pk %}">{{ i }}</a> ----- {{ i.tuman }} ----- {{ i.maktab.tuman }} ----- {{ i.maktab }}</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

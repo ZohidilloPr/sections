@@ -1,0 +1,11 @@
+{% extends "main.html" %}
+{% block title %}
+    Home
+{% endblock title %}
+{% block content %}
+    <h1>{{ one.f_name }}</h1>
+    {% for i in one.abilty.all %}
+       <li>{{ i }}</li>
+    {% endfor %}
+    
+{% endblock content %}                

@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+{% block title %}
+    Home
+{% endblock title %}
+{% block content %}
+    <table class="table">
+        <tr>
+            <th scope="col">F.I.SH</th>
+            <th scope="col">Maktab №</th>
+            <th scope="col">Sinf №</th>
+            <!-- <th></th>  -->
+        </tr>
+        {% for i in student %}
+            <tr>
+                <td>{{ i.name }}</td>
+                <td>{{ i.school }}</td>
+                <td>{{ i.update_sinf }}</td>
+            </tr>  
+        {% endfor %}
+        <tr>
+            <th colspan="3">9-sinflar</th>
+        </tr>
+        {% for g in gra_9 %}
+            <tr>
+                {{ gra_9.graduet_9 }}
+                <!-- <td>{{ g.name }}</td>
+                <td>{{ g.school }}</td>
+                <td>{{ g.update_sinf }}</td> -->
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}

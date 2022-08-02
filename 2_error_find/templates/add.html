@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block title %}
+    Add
+{% endblock title %}
+
+{% block content %}
+<form action="" id="StudentForm" data-maktab-url="{% url 'load_maktab' %}" method="post" novalidate>
+    {% csrf_token %}
+    <table class="table">
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Add">
+</form>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+<script>
+    $("#id_tuman").change(function(){
+        const url = $("#StudentForm").attr("data-maktab-url");
+        const tumanId = $(this).val();
+
+        $.ajax({
+            url : url,
+            data : {
+                'tuman_id' : tumanId
+            },
+            success: function(data){
+                $("#id_maktab").html(data);
+            }
+        });
+    });
+</script>
+{% endblock content %} 
